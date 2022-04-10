@@ -1,0 +1,13 @@
+{
+  "files.exclude": {
+    "**/.git": false
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "python.formatting.blackArgs": [
+    "--line-length",
+    "120"
+  ],
+  "python.formatting.provider": "black",
+}
