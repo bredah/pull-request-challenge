@@ -4,7 +4,7 @@ This project presents a simple solution for validating standards and good practi
 
 ## Inpection
 
-This solution using GitHub Actions to validate a pull request (new, reopened or edited), this mechanism performs the following assessments: 
+This solution using GitHub Actions to validate a pull request (new, reopened or edited), this mechanism performs the following assessments:
 
 - validate the contents of the `Pull Request` body
   - If not contains the words: "please", "appreciate", "would be great", failed the PR and skip the linting.
