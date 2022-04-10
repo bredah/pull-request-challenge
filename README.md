@@ -20,7 +20,7 @@ edited), this mechanism performs the following assessments:
 Here are some examples of validations in action:
 
 - PR without expected word in the body: [link]() - [pull request](https://github.com/bredah/pull-request-challenge/runs/5964172514)
-- PR with expected word in the body: [link]() - [pull request]()
+- PR with expected word in the body: [link]() - [pull request](https://github.com/bredah/pull-request-challenge/runs/5964417143)
 
 #### GitHub Actions (hook)
 
