@@ -1,0 +1,40 @@
+name: Pull Request Validator
+
+on:
+  pull_request:
+    types: [opened, reopened, edited]
+    branches: [master] 
+
+jobs:
+  inspection:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Pull Request - Body
+        continue-on-error: false
+        shell: python
+        run: |
+          import sys
+
+          pr_title_ignore_execution = ["wip"]
+          if any(word in "${{ github.event.pull_request.title }}" for word in pr_title_ignore_execution ):
+            sys.exit(1)
+
+          pr_body_expected_words = ["please", "appreciate", "would be great"]
+          if not any(word in "${{ github.event.pull_request.body }}" for word in pr_body_expected_words ):
+            print("Commit Message:")
+            print("${{ github.event.pull_request.body }}")
+            print("Current MR does not meet the quality requirements for good practices, see the README.md iat project root for more information")
+            sys.exit(1)
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Linting
+        run: |
+          pip install pre-commit
+          pre-commit autoupdate
+          pre-commit run --all-files
