@@ -17,7 +17,7 @@ jobs:
           import sys
 
           pr_body_expected_words = ["please", "appreciate", "would be great"]
-          if not any(word in "${{ github.event.pull_request.body }}".replace("\n", " ") for word in pr_body_expected_words ):
+          if not any(word in """${{ github.event.pull_request.body }}""" for word in pr_body_expected_words ):
             print("Commit Message:")
             print("${{ github.event.pull_request.body }}")
             print("Current MR does not meet the quality requirements for good practices, see the README.md iat project root for more information")
