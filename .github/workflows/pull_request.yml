@@ -3,7 +3,6 @@ name: Pull Request Validator
 on:
   pull_request:
     types: [opened, reopened, edited]
-    branches: [master] 
 
 jobs:
   inspection:
@@ -16,10 +15,6 @@ jobs:
         shell: python
         run: |
           import sys
-
-          pr_title_ignore_execution = ["wip"]
-          if any(word in "${{ github.event.pull_request.title }}" for word in pr_title_ignore_execution ):
-            sys.exit(1)
 
           pr_body_expected_words = ["please", "appreciate", "would be great"]
           if not any(word in "${{ github.event.pull_request.body }}" for word in pr_body_expected_words ):
