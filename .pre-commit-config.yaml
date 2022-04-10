@@ -1,4 +1,4 @@
-exclude: ^(.github/|.vscode/)
+exclude: ^(.github\/|.vscode\/|readme)
 
 repos:
     - repo: https://github.com/pre-commit/pre-commit-hooks
