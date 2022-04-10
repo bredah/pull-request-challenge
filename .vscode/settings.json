@@ -1,6 +1,7 @@
 {
   "files.exclude": {
-    "**/.git": false
+    "**/.git": false,
+    "**/.vscode": false
   },
   "[python]": {
     "editor.defaultFormatter": "ms-python.python"
